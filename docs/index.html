@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book-to-Content Repurposing — Export It, Don't Recreate It</title>
+<meta name="description" content="Turn a finished manuscript's own material into a launch content library — without inventing claims or blurring the author's real words with the brand's own framing.">
+<meta property="og:title" content="Book-to-Content Repurposing">
+<meta property="og:description" content="The book is already a marketing asset library. Export it — and never blur the author's real words with the brand's own framing.">
+<meta property="og:image" content="https://nftyoginis.github.io/book-to-content-repurposing-skill/og-image.png">
+<meta property="og:type" content="website">
+<style>
+  :root {
+    --paper: #f7f5ee;
+    --ink: #1e211d;
+    --muted: #5f665c;
+    --sage: #5c7a5e;
+    --surface: #ecefe4;
+    --border: #dde3d4;
+    --chip: #b5731a;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.6;
+  }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(247,245,238,0.96);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(4px);
+  }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; padding: 14px 24px; }
+  .brand { font-weight: 700; font-size: 1.05rem; color: var(--ink); text-decoration: none; letter-spacing: -0.01em; }
+  .brand span { color: var(--sage); }
+  .navlinks { display: flex; gap: 22px; align-items: center; }
+  .navlinks a { color: var(--muted); text-decoration: none; font-size: 0.95rem; }
+  .navlinks a:hover { color: var(--sage); }
+  .btn {
+    display: inline-block; padding: 10px 20px; border-radius: 6px;
+    font-weight: 600; text-decoration: none; font-size: 0.95rem;
+    border: 1px solid transparent; cursor: pointer;
+  }
+  .btn-primary { background: var(--sage); color: #fff; }
+  .btn-primary:hover { background: #4a6449; }
+  .btn-ghost { background: transparent; color: var(--ink); border-color: var(--border); }
+  .btn-ghost:hover { border-color: var(--sage); color: var(--sage); }
+  header.hero { padding: 96px 0 72px; text-align: center; }
+  .kicker {
+    display: inline-block; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--chip); border: 1px solid var(--chip);
+    border-radius: 20px; padding: 4px 14px; margin-bottom: 24px;
+  }
+  header.hero h1 { font-size: 2.5rem; line-height: 1.2; margin: 0 0 20px; max-width: 780px; margin-left: auto; margin-right: auto; }
+  header.hero p.sub { font-size: 1.15rem; color: var(--muted); max-width: 680px; margin: 0 auto 36px; }
+  .hero-ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  section { padding: 64px 0; border-top: 1px solid var(--border); }
+  section h2 { font-size: 1.8rem; margin-bottom: 8px; }
+  section p.lead { color: var(--muted); max-width: 700px; margin-bottom: 40px; }
+  .asset-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 16px; }
+  .asset-tile {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 20px; font-size: 0.9rem;
+  }
+  .asset-tile .n { font-weight: 700; color: var(--sage); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; display: block; margin-bottom: 8px; }
+  .asset-tile p { margin: 0; color: var(--ink); }
+  .chip-demo {
+    background: #fff; border: 1px solid var(--border); border-radius: 10px;
+    padding: 28px; margin-top: 32px;
+  }
+  .chip-pill {
+    display: inline-block; background: var(--chip); color: #fff; font-size: 0.7rem;
+    font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+    padding: 4px 12px; border-radius: 14px; margin-bottom: 16px;
+  }
+  .chip-demo blockquote { margin: 14px 0; padding-left: 16px; border-left: 3px solid var(--sage); color: var(--ink); font-style: italic; }
+  .chip-demo .attribution { color: var(--muted); font-size: 0.88rem; margin-top: -8px; }
+  .chip-demo .bridge { color: var(--sage); font-weight: 600; font-size: 0.9rem; margin-top: 18px; }
+  .chip-demo .disclaimer { color: var(--muted); font-size: 0.78rem; margin-top: 16px; border-top: 1px dashed var(--border); padding-top: 12px; }
+  .gate-table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+  .gate-table th, .gate-table td {
+    text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--border); font-size: 0.88rem; vertical-align: top;
+  }
+  .gate-table th { color: var(--muted); font-weight: 600; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.03em; }
+  .caption-card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 24px 28px; margin-top: 24px; font-size: 0.92rem; color: var(--ink);
+  }
+  .caption-card .fname { font-size: 0.78rem; color: var(--sage); font-weight: 700; margin-bottom: 10px; }
+  .caption-card p { margin: 0 0 10px; color: var(--ink); }
+  .caption-card .hashtags { color: var(--muted); font-size: 0.85rem; margin-top: 12px; }
+  .proof-block {
+    background: var(--surface); border: 1px dashed var(--border); border-radius: 10px;
+    padding: 40px; text-align: center; color: var(--muted);
+  }
+  ol.setup-steps { padding-left: 20px; }
+  ol.setup-steps li { margin-bottom: 14px; }
+  .faq-item { margin-bottom: 28px; }
+  .faq-item h3 { font-size: 1.05rem; margin: 0 0 8px; }
+  .faq-item p { color: var(--muted); margin: 0; }
+  footer { padding: 48px 0; border-top: 1px solid var(--border); text-align: center; color: var(--muted); font-size: 0.9rem; }
+  footer a { color: var(--sage); text-decoration: none; }
+  @media (max-width: 640px) {
+    .navlinks { display: none; }
+    header.hero h1 { font-size: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top">Book-to-<span>Content</span></a>
+    <div class="navlinks">
+      <a href="#inventory">The inventory</a>
+      <a href="#seam">Seam-legibility</a>
+      <a href="#gate">Honesty gate</a>
+      <a href="#faq">FAQ</a>
+      <a class="btn btn-primary" href="#setup">Get started</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <span class="kicker">Export, don't recreate</span>
+    <h1>The book is already a marketing asset library. Export it — and never blur what the author said with what the brand is doing with it.</h1>
+    <p class="sub">Signature lines, a core diagram, debunk boxes, quote-spreads — a finished manuscript already contains a launch content library. This specialist catalogues it, frames anything borrowed from elsewhere with a mandatory seam-legibility chip, and runs an honesty-gate check before any of it ships.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-primary" href="#inventory">See the inventory pass</a>
+      <a class="btn btn-ghost" href="https://github.com/NFTYoginis/book-to-content-repurposing-skill">View on GitHub</a>
+    </div>
+  </div>
+</header>
+
+<section id="inventory">
+  <div class="wrap">
+    <h2>Catalogue before you create</h2>
+    <p class="lead">One real manuscript, one inventory pass: roughly 40 launch visuals already existed inside the book, before anyone wrote a single new caption.</p>
+    <div class="asset-grid">
+      <div class="asset-tile"><span class="n">Signature line</span><p>"You cannot hear a whisper in a stadium."</p></div>
+      <div class="asset-tile"><span class="n">Core diagram</span><p>The Noise Map — seven noises, one buried signal.</p></div>
+      <div class="asset-tile"><span class="n">Debunk box</span><p>MYTH: detox flushes toxins. HONESTLY: your liver already does that.</p></div>
+      <div class="asset-tile"><span class="n">Quote-spread</span><p>"The body has a language. But it is not words."</p></div>
+      <div class="asset-tile"><span class="n">Ancient echo</span><p>A cross-tradition grounding line, framed as observation, not proof.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="seam">
+  <div class="wrap">
+    <h2>Seam-legibility — mandatory on anything borrowed</h2>
+    <p class="lead">Applying a line the author said in a different context is legitimate. Letting a viewer mistake it for a claim about this book's subject is not.</p>
+    <div class="chip-demo">
+      <span class="chip-pill">A teaching line — applied</span>
+      <blockquote>"A yogi sits, and a yogi feels."</blockquote>
+      <p class="attribution">— from a yoga lesson. About stillness, not about fasting.</p>
+      <p class="bridge">Bring it to a reset →</p>
+      <p style="color:var(--ink); font-size:0.92rem; margin:8px 0 0;">A reset is just sitting, in another form. Not flushing. Feeling.</p>
+      <p class="disclaimer">Self-directed practice. Education, not medical advice.</p>
+    </div>
+  </div>
+</section>
+
+<section id="gate">
+  <div class="wrap">
+    <h2>The honesty gate — run on every derived claim</h2>
+    <p class="lead">Repurposing compresses a manuscript's careful qualifiers into a 12-second caption. The same discipline has to survive that compression.</p>
+    <table class="gate-table">
+      <tr><th>Constraint</th><th>What's checked</th></tr>
+      <tr><td>Lifespan / "live longer" claims</td><td>Absent entirely, not softened</td></tr>
+      <tr><td>"Removes / flushes / eliminates" language</td><td>Only if the manuscript itself supports it — otherwise it's the myth, not the claim</td></tr>
+      <tr><td>Physiological promises</td><td>Awareness claim ≠ physiological claim — kept distinct</td></tr>
+      <tr><td>Authority frame</td><td>Personal practice, direct observation — never supervision</td></tr>
+      <tr><td>Standing disclaimer</td><td>On-screen footer + in the caption text, every time</td></tr>
+    </table>
+  </div>
+</section>
+
+<section id="captions">
+  <div class="wrap">
+    <h2>Captions, keyed to the exact filename</h2>
+    <p class="lead">One voice note for the whole set. Design embeds each caption verbatim — it isn't a draft to paraphrase.</p>
+    <div class="caption-card">
+      <div class="fname">series/myth-honest/myth-01.png</div>
+      <p><em>MYTH: Detox flushes toxins out of your body. HONESTLY: your liver and kidneys already do that — a fast changes your awareness, not your blood chemistry.</em></p>
+      <p>Myth: detox flushes the toxins out of your body. Honestly? Your liver and kidneys already do that, every minute, whether you fast or not.</p>
+      <p>So what does a fast actually change? Your awareness, not your blood chemistry. A debunk is worth as much as a promise.</p>
+      <div class="hashtags">First comment: 5 discovery hashtags · no own-brand or place tags</div>
+    </div>
+  </div>
+</section>
+
+<section id="proof">
+  <div class="wrap">
+    <h2>Content libraries shipped on this discipline</h2>
+    <div class="proof-block">
+      <!-- TODO: operator — add real asset counts/links/engagement, once ready to name them publicly -->
+      Proof of shipped content libraries goes here — added by the operator, not invented.
+    </div>
+  </div>
+</section>
+
+<section id="setup">
+  <div class="wrap">
+    <h2>Setup</h2>
+    <ol class="setup-steps">
+      <li>Load this folder into a Claude Project, or point a Claude Code session at it — <code>SKILL.md</code> lets it auto-discover and trigger from a natural request.</li>
+      <li>Bring the finished or near-finished manuscript — ideally with a completed rhythm-pass flagging its strongest refrains.</li>
+      <li>Let it run the inventory pass first — no new content is generated before the export-ready material is catalogued.</li>
+      <li>Classify each candidate as native or applied/borrowed; applied material gets the full seam-legibility frame, no exceptions.</li>
+      <li>Run the honesty-gate checklist on every asset before it ships to design.</li>
+    </ol>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <h2>FAQ</h2>
+    <div class="faq-item">
+      <h3>Does it design the actual cards or reels?</h3>
+      <p>No. It produces captions, scripts, and on-screen-text specs — final visual rendering is the design worker's job.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What if the manuscript doesn't have much to inventory?</h3>
+      <p>It says so. An empty or thin inventory slot is a real finding — it doesn't invent a diagram or a signature line to fill a content calendar.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Can I skip the "applied" chip if the line is obviously a metaphor?</h3>
+      <p>No — see the refusal gate. The better a borrowed line fits, the higher the misattribution risk, not the lower.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Does it build the launch funnel around this content?</h3>
+      <p>No — that's Book Launch &amp; Funnel Strategy (not yet built). This one supplies the content; it doesn't architect the cascade.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    MIT License · <a href="https://github.com/NFTYoginis/book-to-content-repurposing-skill">GitHub</a>
+  </div>
+</footer>
+
+</body>
+</html>
