@@ -4,6 +4,14 @@ A folder-based ICM specialist that turns a finished or near-finished manuscript'
 
 This formalizes the richest single-book evidence trail in the whole book-production gap: a real launch-ideas inventory naming ~40 already-existing launch visuals inside one manuscript, a real three-reel series proving the seam-legibility discipline in production, and a real eight-card caption set proving the production convention. It is not a theory of content repurposing — it's a repeat of what already shipped once, in full.
 
+## What it produces
+
+An example from a real book: four frames from a 27-second reel made for *Are You Actually Hungry?*. The spoken line is the author's own, from a yoga-teaching podcast. The first two frames carry a source chip and the line as a quote. The third is a separate beat in the brand's voice, marked as the application. The last is the end card with the standing disclaimer.
+
+![Four frames from a reel: two showing the chip "FROM THE FEED YOUR YOGA PODCAST" over the quoted lines "You'll always be a proficient Led Zeppelin songwriter" and "We don't need to come up with new sequences", then a bridge frame reading "THE SAME IS TRUE OF DETOX", then an end card with the book question and a disclaimer](docs/example-applied-line-reel-frames.jpg)
+
+The chip on this reel reads "FROM THE FEED YOUR YOGA PODCAST". The "A TEACHING LINE — APPLIED" chip named in [`examples.md`](examples.md) is from the earlier design draft for the same series. The rule is the same in both: the viewer can tell which words are the author's and which are the application.
+
 ## What this is
 
 Four disciplines, run in sequence on any repurposing pass:
@@ -32,6 +40,23 @@ Full detail per discipline: `reference/`.
 
 See `identity.md` and `rules.md` for the full contract. In short: it never renders final visuals, never buys ad space, never architects the funnel around its content, never invents a claim to fill a content gap, and never ships applied/borrowed material without the seam-legibility chip — it owns the asset inventory, the seam-legibility framing, the honesty-gate pass, and the caption/card text, using a discipline that already shipped once, in full, on a real book.
 
+## Where this fits
+
+The book-production shelf, numbered as in the catalog. The skill in this repo is in bold.
+
+1. [Book Ghostwriting](https://github.com/NFTYoginis/book-ghostwriting-skill)
+2. [Publishing Preparation](https://github.com/NFTYoginis/publishing-preparation-skill)
+3. [Title & Positioning](https://github.com/NFTYoginis/title-and-positioning-skill)
+4. **Book-to-Content Repurposing** (this repo)
+5. [Fact, Claim & Evidence Verification](https://github.com/NFTYoginis/fact-claim-verification-skill)
+6. [Book Launch & Funnel Strategy](https://github.com/NFTYoginis/book-launch-funnel-strategy-skill)
+
+Previous: [Title & Positioning](https://github.com/NFTYoginis/title-and-positioning-skill) · Next: [Fact, Claim & Evidence Verification](https://github.com/NFTYoginis/fact-claim-verification-skill). All six: [Book Production Skills](https://github.com/NFTYoginis/book-production-skills).
+
 ## License
 
 MIT — see `LICENSE`.
+
+---
+
+Built by Gabe at The Quiet Ai. The Quiet Scribe Suite (early access) carries your context from one AI tool to the next: [thequietscribe.com](https://thequietscribe.com)
